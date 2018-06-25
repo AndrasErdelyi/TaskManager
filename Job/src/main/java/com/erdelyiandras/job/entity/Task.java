@@ -5,6 +5,10 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 
 @Entity
 public class Task {
@@ -18,6 +22,16 @@ public class Task {
 	private Date createdAt;
 	private Date modifiedAt;
 	
+	@ManyToOne
+	@JoinColumn(name = "USER_ID")
+	private User user;
+	
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
 	public Long getId() {
 		return id;
 	}
@@ -53,5 +67,15 @@ public class Task {
 	}
 	public void setModifiedAt(Date modifiedAt) {
 		this.modifiedAt = modifiedAt;
+	}
+	
+	@PrePersist
+	public void createdAt() {
+		createdAt = new Date();
+	}
+	
+	@PreUpdate
+	public void modifiedAt() {
+		modifiedAt = new Date();
 	}
 }

@@ -1,29 +1,24 @@
 package com.erdelyiandras.job.entity;
 
 import java.util.Date;
-import javax.persistence.*;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 @Entity
-public class User{
-
+public class Rights {
+	
 	@Id
 	@GeneratedValue
-	@Column(name = "USER_ID")
+	@Column(name = "RIGHTS_ID")
 	private Long id;
 	private String name;
+	private int code;
 	private Date createdAt;
 	private Date modifiedAt;
 	
-	@ManyToOne
-	@JoinColumn(name = "RIGHTS_ID")
-	private Rights rights;
-	
-	public Rights getRights() {
-		return rights;
-	}
-	public void setRights(Rights rights) {
-		this.rights = rights;
-	}
 	public Long getId() {
 		return id;
 	}
@@ -36,21 +31,22 @@ public class User{
 	public void setName(String name) {
 		this.name = name;
 	}
+	public int getCode() {
+		return code;
+	}
+	public void setCode(int code) {
+		this.code = code;
+	}
 	public Date getCreatedAt() {
 		return createdAt;
+	}
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
 	}
 	public Date getModifiedAt() {
 		return modifiedAt;
 	}
-	
-	@PrePersist
-	public void createdAt() {
-		createdAt = new Date();
+	public void setModifiedAt(Date modifiedAt) {
+		this.modifiedAt = modifiedAt;
 	}
-	
-	@PreUpdate
-	public void modifiedAt() {
-		modifiedAt = new Date();
-	}
-	
 }

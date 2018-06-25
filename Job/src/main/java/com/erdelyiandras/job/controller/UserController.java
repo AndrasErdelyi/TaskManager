@@ -1,8 +1,6 @@
 package com.erdelyiandras.job.controller;
 
-
-
-import java.util.Date;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -33,10 +31,8 @@ public class UserController {
 
 		User u = new User();
 		u.setName(name);
-		u.setCreatedAt(new Date());
-		u.setModifiedAt(new Date());
 		userRepository.save(u);
-		return "Saved";
+		return "User saved";
 	}
 	
 	@GetMapping(path="/all")
@@ -52,16 +48,17 @@ public class UserController {
 		} catch (Exception e) {
 			return "Error";
 		}
-		return "Removed";
+		return "User removed";
 	}
 	
 	@PutMapping(path="/update/{id}")
-	public @ResponseBody String updateUser (@PathVariable(value="id") Long id) {
+	public @ResponseBody String updateUser (@PathVariable(value="id") Long id, @RequestParam String name) {
 		if (userRepository.existsById(id)) {
-//			setName(name);
-//			u.setModifiedAt(new Date());
-//			userRepository.save(u);
-			return "Updated";
+			Optional<User> result = userRepository.findById(id);
+			User u = result.get();
+			u.setName(name);
+			userRepository.save(u);
+			return "User updated";
 		}else {
 			return "Error";
 		}
