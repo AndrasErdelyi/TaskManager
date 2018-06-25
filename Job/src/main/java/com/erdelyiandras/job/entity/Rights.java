@@ -6,6 +6,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 
 @Entity
 public class Rights {
@@ -48,5 +50,15 @@ public class Rights {
 	}
 	public void setModifiedAt(Date modifiedAt) {
 		this.modifiedAt = modifiedAt;
+	}
+	
+	@PrePersist
+	public void createdAt() {
+		createdAt = new Date();
+	}
+	
+	@PreUpdate
+	public void modifiedAt() {
+		modifiedAt = new Date();
 	}
 }
