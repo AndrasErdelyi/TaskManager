@@ -1,23 +1,48 @@
 package com.erdelyiandras.job.entity;
 
 import java.util.Date;
-import javax.persistence.*;
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class User{
 
 	@Id
 	@GeneratedValue
-	@Column(name = "USER_ID")
+	@Column(name = "user_id")
 	private Long id;
 	private String name;
+	@CreationTimestamp
 	private Date createdAt;
+	@UpdateTimestamp
 	private Date modifiedAt;
 	
 	@ManyToOne
-	@JoinColumn(name = "RIGHTS_ID")
+	@JoinColumn(name = "rights_id")
 	private Rights rights;
 	
+	@JsonManagedReference
+	@OneToMany(mappedBy = "user")
+	private List<Task> task;
+	
+	public List<Task> getTask() {
+		return task;
+	}
+	public void setTask(List<Task> task) {
+		this.task = task;
+	}
 	public Rights getRights() {
 		return rights;
 	}
@@ -42,15 +67,4 @@ public class User{
 	public Date getModifiedAt() {
 		return modifiedAt;
 	}
-	
-	@PrePersist
-	public void createdAt() {
-		createdAt = new Date();
-	}
-	
-	@PreUpdate
-	public void modifiedAt() {
-		modifiedAt = new Date();
-	}
-	
 }

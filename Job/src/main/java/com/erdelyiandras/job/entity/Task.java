@@ -7,8 +7,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.PrePersist;
-import javax.persistence.PreUpdate;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 public class Task {
@@ -19,11 +22,14 @@ public class Task {
 	private String title;
 	private String description;
 	private Status status;
+	@CreationTimestamp
 	private Date createdAt;
+	@UpdateTimestamp
 	private Date modifiedAt;
 	
+	@JsonBackReference
 	@ManyToOne
-	@JoinColumn(name = "USER_ID")
+	@JoinColumn(name = "user_id")
 	private User user;
 	
 	public User getUser() {
@@ -67,15 +73,5 @@ public class Task {
 	}
 	public void setModifiedAt(Date modifiedAt) {
 		this.modifiedAt = modifiedAt;
-	}
-	
-	@PrePersist
-	public void createdAt() {
-		createdAt = new Date();
-	}
-	
-	@PreUpdate
-	public void modifiedAt() {
-		modifiedAt = new Date();
 	}
 }

@@ -6,19 +6,22 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.PrePersist;
-import javax.persistence.PreUpdate;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
-public class Rights {
+public class Rights{
 	
 	@Id
 	@GeneratedValue
-	@Column(name = "RIGHTS_ID")
+	@Column(name = "rights_id")
 	private Long id;
 	private String name;
 	private int code;
+	@CreationTimestamp
 	private Date createdAt;
+	@UpdateTimestamp
 	private Date modifiedAt;
 	
 	public Long getId() {
@@ -50,15 +53,5 @@ public class Rights {
 	}
 	public void setModifiedAt(Date modifiedAt) {
 		this.modifiedAt = modifiedAt;
-	}
-	
-	@PrePersist
-	public void createdAt() {
-		createdAt = new Date();
-	}
-	
-	@PreUpdate
-	public void modifiedAt() {
-		modifiedAt = new Date();
 	}
 }
