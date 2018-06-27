@@ -1,0 +1,501 @@
+{
+	"info": {
+		"_postman_id": "17f85785-8d95-49ed-926a-6d1a4abdd9f5",
+		"name": "TaskManager",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Rights",
+			"description": "",
+			"item": [
+				{
+					"name": "http://localhost:8080/job/rights update rights",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"id\": \"4\",\n        \"name\": \"admin\",\n        \"code\": \"1\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/job/rights",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"job",
+								"rights"
+							]
+						},
+						"description": "update rights"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8080/job/rights add new rights",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"name\": \"admin\",\n        \"code\": \"1\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/job/rights",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"job",
+								"rights"
+							]
+						},
+						"description": "add new rights"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8080/job/rights get all rights",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"id\": \"4\",\n        \"name\": \"admin\",\n        \"code\": \"1\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/job/rights",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"job",
+								"rights"
+							]
+						},
+						"description": "get all rights"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"description": "",
+			"item": [
+				{
+					"name": "http://localhost:8080/job/user add new user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"name\": \"Horvath Janos\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/job/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"job",
+								"user"
+							]
+						},
+						"description": "add new user"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8080/job/user get all users ",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"name\": \"Nemeth Istvan\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/job/user/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"job",
+								"user",
+								"all"
+							]
+						},
+						"description": "get all users"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8080/job/user/{id} delete user by id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"name\": \"Teszt Elek\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/job/user/9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"job",
+								"user",
+								"9"
+							]
+						},
+						"description": "delete user by id"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8080/job/user update user",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"id\": \"7\",\n        \"name\": \"Kiss Béla\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/job/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"job",
+								"user"
+							]
+						},
+						"description": "update user"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8080/job/user get user by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"id\": \"7\",\n        \"name\": \"Kiss Béla\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/job/user/8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"job",
+								"user",
+								"8"
+							]
+						},
+						"description": "get user by id"
+					},
+					"response": [
+						{
+							"id": "6869f580-d78f-4677-993a-12c98077411f",
+							"name": "http://localhost:8080/job/user get user by id",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"disabled": false
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:8080/job/user/4/7",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"job",
+										"user",
+										"4",
+										"7"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=UTF-8",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 27 Jun 2018 21:35:52 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								}
+							],
+							"cookie": [],
+							"body": "{\"timestamp\":\"2018-06-27T21:35:52.988+0000\",\"status\":404,\"error\":\"Not Found\",\"message\":\"No message available\",\"path\":\"/job/user/4/7\"}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Tasks",
+			"description": "",
+			"item": [
+				{
+					"name": "http://localhost:8080/job/task add new task",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\":\"Task test\",\n\t\"description\":\"testing\",\n\t\"status\":\"COMPLETED\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/job/task",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"job",
+								"task"
+							]
+						},
+						"description": "add new task"
+					},
+					"response": [
+						{
+							"id": "176daf11-e089-4632-9baa-3befae5d906c",
+							"name": "http://localhost:8080/job/task add new task",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"title\":\"Add new user\",\n\t\"description\":\"asap\",\n\t\"status\":\"IN_PROGRESS\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8080/job/task",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"job",
+										"task"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=UTF-8",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 27 Jun 2018 21:41:02 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								}
+							],
+							"cookie": [],
+							"body": "{\"id\":10,\"title\":\"Task test\",\"description\":\"testing\",\"status\":\"COMPLETED\",\"createdAt\":\"2018-06-27T21:41:02.146+0000\",\"modifiedAt\":\"2018-06-27T21:41:02.146+0000\"}"
+						}
+					]
+				},
+				{
+					"name": "http://localhost:8080/job/task delete task",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\":\"Add new user\",\n\t\"description\":\"asap\",\n\t\"status\":\"IN_PROGRESS\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/job/task/10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"job",
+								"task",
+								"10"
+							]
+						},
+						"description": "delete task"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8080/job/task update task",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":\"11\",\n\t\"title\":\"Rename new user\",\n\t\"description\":\"asap\",\n\t\"status\":\"NOT_STARTED\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/job/task",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"job",
+								"task"
+							]
+						},
+						"description": "update task"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8080/job/task/{task_id}/{user_id}  task to user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":\"11\",\n\t\"title\":\"Rename new user\",\n\t\"description\":\"asap\",\n\t\"status\":\"NOT_STARTED\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/job/task/11/8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"job",
+								"task",
+								"11",
+								"8"
+							]
+						},
+						"description": " task to user"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
